@@ -1,0 +1,24 @@
+# Core pipeline & models
+boto3==1.34.144
+pydantic==2.8.2
+pydantic-settings==2.3.4
+
+# ML / Text analytics (offline clustering & TF-IDF)
+scikit-learn==1.5.1
+numpy==1.26.4
+
+# Testing & AWS mocking
+pytest==8.2.2
+pytest-cov==5.0.0
+moto[dynamodb,sqs,sns,s3]==5.0.11
+
+# Code quality & security auditing
+ruff==0.5.4
+mypy==1.10.1
+bandit==1.7.9
+pip-audit==2.7.3
+cfn-lint==1.9.3
+
+# Type stubs
+boto3-stubs[dynamodb,sqs,sns,s3]==1.34.144
+types-requests==2.32.0.20240712

@@ -1,0 +1,294 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  SignalForge: Serverless customer-feedback intelligence pipeline.
+  Transforms messy customer feedback into structured, queryable data using
+  AWS Lambda, SQS (with DLQ), DynamoDB, SNS, and API Gateway.
+
+Globals:
+  Function:
+    Timeout: 30
+    MemorySize: 512
+    Runtime: python3.11
+    Tracing: Active
+    Architectures:
+      - arm64
+    Environment:
+      Variables:
+        FEEDBACK_TABLE_NAME: !Ref FeedbackTable
+        FEEDBACK_QUEUE_URL: !Ref FeedbackIngestQueue
+        ALERTS_TOPIC_ARN: !Ref SpikeAlertsTopic
+        POWERTOOLS_SERVICE_NAME: signalforge
+        LOG_LEVEL: INFO
+
+Parameters:
+  Environment:
+    Type: String
+    Default: prod
+    AllowedValues:
+      - dev
+      - staging
+      - prod
+    Description: Environment stage name
+
+Resources:
+  ##############################################################################
+  # API GATEWAY
+  ##############################################################################
+  SignalForgeApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: !Ref Environment
+      EndpointConfiguration:
+        Type: REGIONAL
+      TracingEnabled: true
+      Cors:
+        AllowMethods: "'GET,POST,OPTIONS'"
+        AllowHeaders: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+        AllowOrigin: "'*'"
+
+  ##############################################################################
+  # SQS QUEUES (MAIN QUEUE + DEAD-LETTER QUEUE)
+  ##############################################################################
+  FeedbackDLQ:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: !Sub "signalforge-dlq-${Environment}"
+      MessageRetentionPeriod: 1209600 # 14 days
+      KmsMasterKeyId: alias/aws/sqs
+
+  FeedbackIngestQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: !Sub "signalforge-ingest-${Environment}"
+      # SQS Visibility Timeout (180s) strictly exceeds Processor Lambda timeout (30s)
+      VisibilityTimeout: 180
+      MessageRetentionPeriod: 345600 # 4 days
+      KmsMasterKeyId: alias/aws/sqs
+      RedrivePolicy:
+        deadLetterTargetArn: !GetAtt FeedbackDLQ.Arn
+        maxReceiveCount: 3
+
+  ##############################################################################
+  # DYNAMODB TABLE & INDEXES
+  ##############################################################################
+  FeedbackTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "signalforge-feedback-${Environment}"
+      BillingMode: PAY_PER_REQUEST
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: true
+      SSESpecification:
+        SSEEnabled: true
+      AttributeDefinitions:
+        - AttributeName: feedback_id
+          AttributeType: S
+        - AttributeName: source
+          AttributeType: S
+        - AttributeName: sentiment
+          AttributeType: S
+        - AttributeName: theme_id
+          AttributeType: S
+        - AttributeName: timestamp
+          AttributeType: S
+      KeySchema:
+        - AttributeName: feedback_id
+          KeyType: HASH
+      GlobalSecondaryIndexes:
+        - IndexName: SourceDateIndex
+          KeySchema:
+            - AttributeName: source
+              KeyType: HASH
+            - AttributeName: timestamp
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+        - IndexName: SentimentDateIndex
+          KeySchema:
+            - AttributeName: sentiment
+              KeyType: HASH
+            - AttributeName: timestamp
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+        - IndexName: ThemeDateIndex
+          KeySchema:
+            - AttributeName: theme_id
+              KeyType: HASH
+            - AttributeName: timestamp
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+
+  ##############################################################################
+  # SNS TOPIC FOR ANOMALY & SPIKE ALERTS
+  ##############################################################################
+  SpikeAlertsTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: !Sub "signalforge-spike-alerts-${Environment}"
+      KmsMasterKeyId: alias/aws/sns
+
+  ##############################################################################
+  # LAMBDA FUNCTIONS
+  ##############################################################################
+  IngestFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: signalforge.handlers.ingest.handler
+      CodeUri: src/
+      Description: Ingestion endpoint validator and SQS dispatcher
+      ReservedConcurrentExecutions: 50
+      Policies:
+        # Least privilege: exact SQS queue ARN only
+        - Statement:
+            - Effect: Allow
+              Action:
+                - sqs:SendMessage
+                - sqs:SendMessageBatch
+              Resource: !GetAtt FeedbackIngestQueue.Arn
+      Events:
+        PostFeedback:
+          Type: Api
+          Properties:
+            RestApiId: !Ref SignalForgeApi
+            Path: /feedback
+            Method: POST
+        PostFeedbackBatch:
+          Type: Api
+          Properties:
+            RestApiId: !Ref SignalForgeApi
+            Path: /feedback/batch
+            Method: POST
+
+  ProcessorFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: signalforge.handlers.processor.handler
+      CodeUri: src/
+      Timeout: 30
+      MemorySize: 1024
+      ReservedConcurrentExecutions: 20
+      Policies:
+        # Least privilege: SQS batch consumption on main queue only
+        - Statement:
+            - Effect: Allow
+              Action:
+                - sqs:ReceiveMessage
+                - sqs:DeleteMessage
+                - sqs:DeleteMessageBatch
+                - sqs:GetQueueAttributes
+              Resource: !GetAtt FeedbackIngestQueue.Arn
+        # Least privilege: DynamoDB PutItem on feedback table only
+        - Statement:
+            - Effect: Allow
+              Action:
+                - dynamodb:PutItem
+              Resource: !GetAtt FeedbackTable.Arn
+        # Least privilege: SNS Publish on SpikeAlertsTopic only
+        - Statement:
+            - Effect: Allow
+              Action:
+                - sns:Publish
+              Resource: !Ref SpikeAlertsTopic
+      Events:
+        FeedbackQueueEvent:
+          Type: SQS
+          Properties:
+            Queue: !GetAtt FeedbackIngestQueue.Arn
+            BatchSize: 10
+            FunctionResponseTypes:
+              - ReportBatchItemFailures
+
+  QueryFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: signalforge.handlers.query.handler
+      CodeUri: src/
+      Description: Query API for feedback items, themes, and stats
+      ReservedConcurrentExecutions: 30
+      Policies:
+        # Least privilege: DynamoDB read actions only on table and GSIs
+        - Statement:
+            - Effect: Allow
+              Action:
+                - dynamodb:GetItem
+                - dynamodb:Query
+                - dynamodb:Scan
+              Resource:
+                - !GetAtt FeedbackTable.Arn
+                - !Sub "${FeedbackTable.Arn}/index/*"
+      Events:
+        GetFeedbackList:
+          Type: Api
+          Properties:
+            RestApiId: !Ref SignalForgeApi
+            Path: /feedback
+            Method: GET
+        GetFeedbackById:
+          Type: Api
+          Properties:
+            RestApiId: !Ref SignalForgeApi
+            Path: /feedback/{id}
+            Method: GET
+        GetThemes:
+          Type: Api
+          Properties:
+            RestApiId: !Ref SignalForgeApi
+            Path: /themes
+            Method: GET
+        GetStats:
+          Type: Api
+          Properties:
+            RestApiId: !Ref SignalForgeApi
+            Path: /stats/summary
+            Method: GET
+
+  ##############################################################################
+  # CLOUDWATCH ALARMS
+  ##############################################################################
+  DLQMessagesAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub "SignalForge-DLQ-Depth-${Environment}"
+      AlarmDescription: Triggers when dead-letter queue contains unhandled poison messages
+      Namespace: AWS/SQS
+      MetricName: ApproximateNumberOfMessagesVisible
+      Dimensions:
+        - Name: QueueName
+          Value: !GetAtt FeedbackDLQ.QueueName
+      Statistic: Sum
+      Period: 60
+      EvaluationPeriods: 1
+      Threshold: 1
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+
+  ProcessorErrorsAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub "SignalForge-Processor-Errors-${Environment}"
+      AlarmDescription: Triggers when Processor Lambda encounters unhandled runtime errors
+      Namespace: AWS/Lambda
+      MetricName: Errors
+      Dimensions:
+        - Name: FunctionName
+          Value: !Ref ProcessorFunction
+      Statistic: Sum
+      Period: 60
+      EvaluationPeriods: 2
+      Threshold: 1
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+
+Outputs:
+  ApiEndpoint:
+    Description: Base API Gateway execution URL
+    Value: !Sub "https://${SignalForgeApi}.execute-api.${AWS::Region}.amazonaws.com/${Environment}"
+  FeedbackQueueArn:
+    Description: Ingest SQS Queue ARN
+    Value: !GetAtt FeedbackIngestQueue.Arn
+  FeedbackTableArn:
+    Description: DynamoDB Table ARN
+    Value: !GetAtt FeedbackTable.Arn

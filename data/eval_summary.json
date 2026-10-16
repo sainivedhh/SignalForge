@@ -1,0 +1,963 @@
+{
+  "dev": {
+    "dataset": "data/dev_dataset.json",
+    "sample_count": 60,
+    "accuracy": 0.45,
+    "class_metrics": {
+      "positive": {
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1": 0.5,
+        "support": 24
+      },
+      "neutral": {
+        "precision": 0.3,
+        "recall": 1.0,
+        "f1": 0.462,
+        "support": 9
+      },
+      "negative": {
+        "precision": 1.0,
+        "recall": 0.222,
+        "f1": 0.364,
+        "support": 27
+      }
+    },
+    "confusion_matrix": {
+      "positive": {
+        "positive": 12,
+        "neutral": 12,
+        "negative": 0
+      },
+      "neutral": {
+        "positive": 0,
+        "neutral": 9,
+        "negative": 0
+      },
+      "negative": {
+        "positive": 12,
+        "neutral": 9,
+        "negative": 6
+      }
+    },
+    "failures": [
+      {
+        "id": "eval_42_0000",
+        "category": "sarcasm",
+        "text": "Oh wonderful, another update that completely crashes the app. Just fantastic!",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "positive",
+        "expected_topic": "bug",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_42_0001",
+        "category": "sarcasm",
+        "text": "Brilliant work charging me three times for one subscription, truly five star service.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "positive",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "billing"
+        ]
+      },
+      {
+        "id": "eval_42_0002",
+        "category": "sarcasm",
+        "text": "I absolutely love waiting 45 seconds for a single page to load. Great job guys.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "positive",
+        "expected_topic": "performance",
+        "predicted_topics": [
+          "performance"
+        ]
+      },
+      {
+        "id": "eval_42_0004",
+        "category": "negation",
+        "text": "This is definitely not what I would call a good or reliable tool.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "positive",
+        "expected_topic": "bug",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_42_0005",
+        "category": "negation",
+        "text": "Never had any issues with billing and charges are never incorrect.",
+        "expected_sentiment": "positive",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_42_0006",
+        "category": "mixed",
+        "text": "The UI design is gorgeous and clean, but the constant crashes make it unusable.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "bug",
+        "predicted_topics": [
+          "ui_ux"
+        ]
+      },
+      {
+        "id": "eval_42_0008",
+        "category": "typos",
+        "text": "The new relase is so sloww, laggy and completly brokn.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "performance",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_42_0009",
+        "category": "typos",
+        "text": "Amzing suport! Responded in 2 mins and fixed my login pasword.",
+        "expected_sentiment": "positive",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "account",
+        "predicted_topics": [
+          "account"
+        ]
+      },
+      {
+        "id": "eval_42_0011",
+        "category": "code_switched",
+        "text": "Servicio muy rapido y excelente, me encanto la nueva actualizacion.",
+        "expected_sentiment": "positive",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "ui_ux",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_42_0013",
+        "category": "short",
+        "text": "Loved it!",
+        "expected_sentiment": "positive",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "other",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_42_0016",
+        "category": "standard",
+        "text": "I cannot reset my password or receive the 2FA SMS code.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "account",
+        "predicted_topics": [
+          "account"
+        ]
+      },
+      {
+        "id": "eval_42_0018",
+        "category": "standard",
+        "text": "Fantastic product, super fast performance and reliable sync.",
+        "expected_sentiment": "positive",
+        "predicted_sentiment": "positive",
+        "expected_topic": "performance",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_42_0020",
+        "category": "sarcasm",
+        "text": "Oh wonderful, another update that completely crashes the app. Just fantastic!",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "positive",
+        "expected_topic": "bug",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_42_0021",
+        "category": "sarcasm",
+        "text": "Brilliant work charging me three times for one subscription, truly five star service.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "positive",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "billing"
+        ]
+      },
+      {
+        "id": "eval_42_0022",
+        "category": "sarcasm",
+        "text": "I absolutely love waiting 45 seconds for a single page to load. Great job guys.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "positive",
+        "expected_topic": "performance",
+        "predicted_topics": [
+          "performance"
+        ]
+      },
+      {
+        "id": "eval_42_0024",
+        "category": "negation",
+        "text": "This is definitely not what I would call a good or reliable tool.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "positive",
+        "expected_topic": "bug",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_42_0025",
+        "category": "negation",
+        "text": "Never had any issues with billing and charges are never incorrect.",
+        "expected_sentiment": "positive",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_42_0026",
+        "category": "mixed",
+        "text": "The UI design is gorgeous and clean, but the constant crashes make it unusable.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "bug",
+        "predicted_topics": [
+          "ui_ux"
+        ]
+      },
+      {
+        "id": "eval_42_0028",
+        "category": "typos",
+        "text": "The new relase is so sloww, laggy and completly brokn.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "performance",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_42_0029",
+        "category": "typos",
+        "text": "Amzing suport! Responded in 2 mins and fixed my login pasword.",
+        "expected_sentiment": "positive",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "account",
+        "predicted_topics": [
+          "account"
+        ]
+      },
+      {
+        "id": "eval_42_0031",
+        "category": "code_switched",
+        "text": "Servicio muy rapido y excelente, me encanto la nueva actualizacion.",
+        "expected_sentiment": "positive",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "ui_ux",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_42_0033",
+        "category": "short",
+        "text": "Loved it!",
+        "expected_sentiment": "positive",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "other",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_42_0036",
+        "category": "standard",
+        "text": "I cannot reset my password or receive the 2FA SMS code.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "account",
+        "predicted_topics": [
+          "account"
+        ]
+      },
+      {
+        "id": "eval_42_0038",
+        "category": "standard",
+        "text": "Fantastic product, super fast performance and reliable sync.",
+        "expected_sentiment": "positive",
+        "predicted_sentiment": "positive",
+        "expected_topic": "performance",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_42_0040",
+        "category": "sarcasm",
+        "text": "Oh wonderful, another update that completely crashes the app. Just fantastic!",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "positive",
+        "expected_topic": "bug",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_42_0041",
+        "category": "sarcasm",
+        "text": "Brilliant work charging me three times for one subscription, truly five star service.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "positive",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "billing"
+        ]
+      },
+      {
+        "id": "eval_42_0042",
+        "category": "sarcasm",
+        "text": "I absolutely love waiting 45 seconds for a single page to load. Great job guys.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "positive",
+        "expected_topic": "performance",
+        "predicted_topics": [
+          "performance"
+        ]
+      },
+      {
+        "id": "eval_42_0044",
+        "category": "negation",
+        "text": "This is definitely not what I would call a good or reliable tool.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "positive",
+        "expected_topic": "bug",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_42_0045",
+        "category": "negation",
+        "text": "Never had any issues with billing and charges are never incorrect.",
+        "expected_sentiment": "positive",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_42_0046",
+        "category": "mixed",
+        "text": "The UI design is gorgeous and clean, but the constant crashes make it unusable.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "bug",
+        "predicted_topics": [
+          "ui_ux"
+        ]
+      },
+      {
+        "id": "eval_42_0048",
+        "category": "typos",
+        "text": "The new relase is so sloww, laggy and completly brokn.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "performance",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_42_0049",
+        "category": "typos",
+        "text": "Amzing suport! Responded in 2 mins and fixed my login pasword.",
+        "expected_sentiment": "positive",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "account",
+        "predicted_topics": [
+          "account"
+        ]
+      },
+      {
+        "id": "eval_42_0051",
+        "category": "code_switched",
+        "text": "Servicio muy rapido y excelente, me encanto la nueva actualizacion.",
+        "expected_sentiment": "positive",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "ui_ux",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_42_0053",
+        "category": "short",
+        "text": "Loved it!",
+        "expected_sentiment": "positive",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "other",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_42_0056",
+        "category": "standard",
+        "text": "I cannot reset my password or receive the 2FA SMS code.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "account",
+        "predicted_topics": [
+          "account"
+        ]
+      },
+      {
+        "id": "eval_42_0058",
+        "category": "standard",
+        "text": "Fantastic product, super fast performance and reliable sync.",
+        "expected_sentiment": "positive",
+        "predicted_sentiment": "positive",
+        "expected_topic": "performance",
+        "predicted_topics": [
+          "other"
+        ]
+      }
+    ]
+  },
+  "holdout": {
+    "dataset": "data/holdout_dataset.json",
+    "sample_count": 60,
+    "accuracy": 0.4,
+    "class_metrics": {
+      "positive": {
+        "precision": 0.562,
+        "recall": 0.75,
+        "f1": 0.643,
+        "support": 12
+      },
+      "neutral": {
+        "precision": 0.324,
+        "recall": 0.75,
+        "f1": 0.453,
+        "support": 16
+      },
+      "negative": {
+        "precision": 0.429,
+        "recall": 0.094,
+        "f1": 0.154,
+        "support": 32
+      }
+    },
+    "confusion_matrix": {
+      "positive": {
+        "positive": 9,
+        "neutral": 3,
+        "negative": 0
+      },
+      "neutral": {
+        "positive": 0,
+        "neutral": 12,
+        "negative": 4
+      },
+      "negative": {
+        "positive": 7,
+        "neutral": 22,
+        "negative": 3
+      }
+    },
+    "failures": [
+      {
+        "id": "eval_1337_0000",
+        "category": "sarcasm",
+        "text": "Wow, top tier engineering! The checkout button vanishes whenever you click it.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "bug",
+        "predicted_topics": [
+          "ui_ux"
+        ]
+      },
+      {
+        "id": "eval_1337_0001",
+        "category": "sarcasm",
+        "text": "Amazing feature: deducting renewal fees without sending a receipt or notice.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "positive",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "billing"
+        ]
+      },
+      {
+        "id": "eval_1337_0002",
+        "category": "negation",
+        "text": "I cannot say that I hate the new navigation, it isn't terrible.",
+        "expected_sentiment": "neutral",
+        "predicted_sentiment": "negative",
+        "expected_topic": "ui_ux",
+        "predicted_topics": [
+          "ui_ux"
+        ]
+      },
+      {
+        "id": "eval_1337_0004",
+        "category": "negation",
+        "text": "Payment wasn't processed and no confirmation email was received.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "billing"
+        ]
+      },
+      {
+        "id": "eval_1337_0005",
+        "category": "mixed",
+        "text": "Fast sync across all devices, but the subscription price hike is ridiculous.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "billing"
+        ]
+      },
+      {
+        "id": "eval_1337_0006",
+        "category": "mixed",
+        "text": "Customer rep was polite, but took four days to unlock my account.",
+        "expected_sentiment": "neutral",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "account",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_1337_0007",
+        "category": "typos",
+        "text": "Pls fix the serch bar, it frezes when typin fast.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "positive",
+        "expected_topic": "performance",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_1337_0008",
+        "category": "typos",
+        "text": "Excelent customr servic, refund issued quikly.",
+        "expected_sentiment": "positive",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "billing"
+        ]
+      },
+      {
+        "id": "eval_1337_0009",
+        "category": "code_switched",
+        "text": "Login page pe error aa raha hai, OTP nahi mil raha.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "account",
+        "predicted_topics": [
+          "bug",
+          "account"
+        ]
+      },
+      {
+        "id": "eval_1337_0010",
+        "category": "code_switched",
+        "text": "El diseno esta muy bonito pero tiene mucho lag.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "performance",
+        "predicted_topics": [
+          "performance"
+        ]
+      },
+      {
+        "id": "eval_1337_0014",
+        "category": "long_rambling",
+        "text": "I have been a customer since 2021 and usually I do not write reviews, but the recent 4.0 update completely broke our workflow. First of all, the menu items were reorganized for no apparent reason, and now my entire analytics team cannot find the export button. Secondly, every time we attempt to export more than 50 rows, the application latency spikes and throws an unhandled 504 gateway timeout error. We contacted Zendesk support three days ago (ticket 88291) and only received an automated bot reply. If this billing cycle charges us the full enterprise tier fee while the platform is essentially unusable, our legal counsel will be looking into breach of SLA terms. Please have a senior engineer look into this.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "bug",
+        "predicted_topics": [
+          "billing",
+          "performance",
+          "bug",
+          "ui_ux"
+        ]
+      },
+      {
+        "id": "eval_1337_0017",
+        "category": "standard",
+        "text": "My corporate SSO SAML login fails with invalid signature error.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "account",
+        "predicted_topics": [
+          "bug",
+          "account"
+        ]
+      },
+      {
+        "id": "eval_1337_0018",
+        "category": "standard",
+        "text": "Invoices should include company tax ID and VAT number.",
+        "expected_sentiment": "neutral",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_1337_0019",
+        "category": "sarcasm",
+        "text": "Wow, top tier engineering! The checkout button vanishes whenever you click it.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "bug",
+        "predicted_topics": [
+          "ui_ux"
+        ]
+      },
+      {
+        "id": "eval_1337_0020",
+        "category": "sarcasm",
+        "text": "Amazing feature: deducting renewal fees without sending a receipt or notice.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "positive",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "billing"
+        ]
+      },
+      {
+        "id": "eval_1337_0021",
+        "category": "negation",
+        "text": "I cannot say that I hate the new navigation, it isn't terrible.",
+        "expected_sentiment": "neutral",
+        "predicted_sentiment": "negative",
+        "expected_topic": "ui_ux",
+        "predicted_topics": [
+          "ui_ux"
+        ]
+      },
+      {
+        "id": "eval_1337_0023",
+        "category": "negation",
+        "text": "Payment wasn't processed and no confirmation email was received.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "billing"
+        ]
+      },
+      {
+        "id": "eval_1337_0024",
+        "category": "mixed",
+        "text": "Fast sync across all devices, but the subscription price hike is ridiculous.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "billing"
+        ]
+      },
+      {
+        "id": "eval_1337_0025",
+        "category": "mixed",
+        "text": "Customer rep was polite, but took four days to unlock my account.",
+        "expected_sentiment": "neutral",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "account",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_1337_0026",
+        "category": "typos",
+        "text": "Pls fix the serch bar, it frezes when typin fast.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "positive",
+        "expected_topic": "performance",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_1337_0027",
+        "category": "typos",
+        "text": "Excelent customr servic, refund issued quikly.",
+        "expected_sentiment": "positive",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "billing"
+        ]
+      },
+      {
+        "id": "eval_1337_0028",
+        "category": "code_switched",
+        "text": "Login page pe error aa raha hai, OTP nahi mil raha.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "account",
+        "predicted_topics": [
+          "bug",
+          "account"
+        ]
+      },
+      {
+        "id": "eval_1337_0029",
+        "category": "code_switched",
+        "text": "El diseno esta muy bonito pero tiene mucho lag.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "performance",
+        "predicted_topics": [
+          "performance"
+        ]
+      },
+      {
+        "id": "eval_1337_0033",
+        "category": "long_rambling",
+        "text": "I have been a customer since 2021 and usually I do not write reviews, but the recent 4.0 update completely broke our workflow. First of all, the menu items were reorganized for no apparent reason, and now my entire analytics team cannot find the export button. Secondly, every time we attempt to export more than 50 rows, the application latency spikes and throws an unhandled 504 gateway timeout error. We contacted Zendesk support three days ago (ticket 88291) and only received an automated bot reply. If this billing cycle charges us the full enterprise tier fee while the platform is essentially unusable, our legal counsel will be looking into breach of SLA terms. Please have a senior engineer look into this.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "bug",
+        "predicted_topics": [
+          "billing",
+          "performance",
+          "bug",
+          "ui_ux"
+        ]
+      },
+      {
+        "id": "eval_1337_0036",
+        "category": "standard",
+        "text": "My corporate SSO SAML login fails with invalid signature error.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "account",
+        "predicted_topics": [
+          "bug",
+          "account"
+        ]
+      },
+      {
+        "id": "eval_1337_0037",
+        "category": "standard",
+        "text": "Invoices should include company tax ID and VAT number.",
+        "expected_sentiment": "neutral",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_1337_0038",
+        "category": "sarcasm",
+        "text": "Wow, top tier engineering! The checkout button vanishes whenever you click it.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "bug",
+        "predicted_topics": [
+          "ui_ux"
+        ]
+      },
+      {
+        "id": "eval_1337_0039",
+        "category": "sarcasm",
+        "text": "Amazing feature: deducting renewal fees without sending a receipt or notice.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "positive",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "billing"
+        ]
+      },
+      {
+        "id": "eval_1337_0040",
+        "category": "negation",
+        "text": "I cannot say that I hate the new navigation, it isn't terrible.",
+        "expected_sentiment": "neutral",
+        "predicted_sentiment": "negative",
+        "expected_topic": "ui_ux",
+        "predicted_topics": [
+          "ui_ux"
+        ]
+      },
+      {
+        "id": "eval_1337_0042",
+        "category": "negation",
+        "text": "Payment wasn't processed and no confirmation email was received.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "billing"
+        ]
+      },
+      {
+        "id": "eval_1337_0043",
+        "category": "mixed",
+        "text": "Fast sync across all devices, but the subscription price hike is ridiculous.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "billing"
+        ]
+      },
+      {
+        "id": "eval_1337_0044",
+        "category": "mixed",
+        "text": "Customer rep was polite, but took four days to unlock my account.",
+        "expected_sentiment": "neutral",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "account",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_1337_0045",
+        "category": "typos",
+        "text": "Pls fix the serch bar, it frezes when typin fast.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "positive",
+        "expected_topic": "performance",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_1337_0046",
+        "category": "typos",
+        "text": "Excelent customr servic, refund issued quikly.",
+        "expected_sentiment": "positive",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "billing"
+        ]
+      },
+      {
+        "id": "eval_1337_0047",
+        "category": "code_switched",
+        "text": "Login page pe error aa raha hai, OTP nahi mil raha.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "account",
+        "predicted_topics": [
+          "bug",
+          "account"
+        ]
+      },
+      {
+        "id": "eval_1337_0048",
+        "category": "code_switched",
+        "text": "El diseno esta muy bonito pero tiene mucho lag.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "performance",
+        "predicted_topics": [
+          "performance"
+        ]
+      },
+      {
+        "id": "eval_1337_0052",
+        "category": "long_rambling",
+        "text": "I have been a customer since 2021 and usually I do not write reviews, but the recent 4.0 update completely broke our workflow. First of all, the menu items were reorganized for no apparent reason, and now my entire analytics team cannot find the export button. Secondly, every time we attempt to export more than 50 rows, the application latency spikes and throws an unhandled 504 gateway timeout error. We contacted Zendesk support three days ago (ticket 88291) and only received an automated bot reply. If this billing cycle charges us the full enterprise tier fee while the platform is essentially unusable, our legal counsel will be looking into breach of SLA terms. Please have a senior engineer look into this.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "bug",
+        "predicted_topics": [
+          "billing",
+          "performance",
+          "bug",
+          "ui_ux"
+        ]
+      },
+      {
+        "id": "eval_1337_0055",
+        "category": "standard",
+        "text": "My corporate SSO SAML login fails with invalid signature error.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "account",
+        "predicted_topics": [
+          "bug",
+          "account"
+        ]
+      },
+      {
+        "id": "eval_1337_0056",
+        "category": "standard",
+        "text": "Invoices should include company tax ID and VAT number.",
+        "expected_sentiment": "neutral",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "other"
+        ]
+      },
+      {
+        "id": "eval_1337_0057",
+        "category": "sarcasm",
+        "text": "Wow, top tier engineering! The checkout button vanishes whenever you click it.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "neutral",
+        "expected_topic": "bug",
+        "predicted_topics": [
+          "ui_ux"
+        ]
+      },
+      {
+        "id": "eval_1337_0058",
+        "category": "sarcasm",
+        "text": "Amazing feature: deducting renewal fees without sending a receipt or notice.",
+        "expected_sentiment": "negative",
+        "predicted_sentiment": "positive",
+        "expected_topic": "billing",
+        "predicted_topics": [
+          "billing"
+        ]
+      },
+      {
+        "id": "eval_1337_0059",
+        "category": "negation",
+        "text": "I cannot say that I hate the new navigation, it isn't terrible.",
+        "expected_sentiment": "neutral",
+        "predicted_sentiment": "negative",
+        "expected_topic": "ui_ux",
+        "predicted_topics": [
+          "ui_ux"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,422 @@
+[
+  {
+    "id": "eval_1337_0000",
+    "text": "Wow, top tier engineering! The checkout button vanishes whenever you click it.",
+    "expected_sentiment": "negative",
+    "expected_topic": "bug",
+    "category": "sarcasm"
+  },
+  {
+    "id": "eval_1337_0001",
+    "text": "Amazing feature: deducting renewal fees without sending a receipt or notice.",
+    "expected_sentiment": "negative",
+    "expected_topic": "billing",
+    "category": "sarcasm"
+  },
+  {
+    "id": "eval_1337_0002",
+    "text": "I cannot say that I hate the new navigation, it isn't terrible.",
+    "expected_sentiment": "neutral",
+    "expected_topic": "ui_ux",
+    "category": "negation"
+  },
+  {
+    "id": "eval_1337_0003",
+    "text": "It is not broken anymore after the patch, no complaints now.",
+    "expected_sentiment": "positive",
+    "expected_topic": "bug",
+    "category": "negation"
+  },
+  {
+    "id": "eval_1337_0004",
+    "text": "Payment wasn't processed and no confirmation email was received.",
+    "expected_sentiment": "negative",
+    "expected_topic": "billing",
+    "category": "negation"
+  },
+  {
+    "id": "eval_1337_0005",
+    "text": "Fast sync across all devices, but the subscription price hike is ridiculous.",
+    "expected_sentiment": "negative",
+    "expected_topic": "billing",
+    "category": "mixed"
+  },
+  {
+    "id": "eval_1337_0006",
+    "text": "Customer rep was polite, but took four days to unlock my account.",
+    "expected_sentiment": "neutral",
+    "expected_topic": "account",
+    "category": "mixed"
+  },
+  {
+    "id": "eval_1337_0007",
+    "text": "Pls fix the serch bar, it frezes when typin fast.",
+    "expected_sentiment": "negative",
+    "expected_topic": "performance",
+    "category": "typos"
+  },
+  {
+    "id": "eval_1337_0008",
+    "text": "Excelent customr servic, refund issued quikly.",
+    "expected_sentiment": "positive",
+    "expected_topic": "billing",
+    "category": "typos"
+  },
+  {
+    "id": "eval_1337_0009",
+    "text": "Login page pe error aa raha hai, OTP nahi mil raha.",
+    "expected_sentiment": "negative",
+    "expected_topic": "account",
+    "category": "code_switched"
+  },
+  {
+    "id": "eval_1337_0010",
+    "text": "El diseno esta muy bonito pero tiene mucho lag.",
+    "expected_sentiment": "negative",
+    "expected_topic": "performance",
+    "category": "code_switched"
+  },
+  {
+    "id": "eval_1337_0011",
+    "text": "Awful",
+    "expected_sentiment": "negative",
+    "expected_topic": "other",
+    "category": "short"
+  },
+  {
+    "id": "eval_1337_0012",
+    "text": "Superb!",
+    "expected_sentiment": "positive",
+    "expected_topic": "other",
+    "category": "short"
+  },
+  {
+    "id": "eval_1337_0013",
+    "text": "Meh.",
+    "expected_sentiment": "neutral",
+    "expected_topic": "other",
+    "category": "short"
+  },
+  {
+    "id": "eval_1337_0014",
+    "text": "I have been a customer since 2021 and usually I do not write reviews, but the recent 4.0 update completely broke our workflow. First of all, the menu items were reorganized for no apparent reason, and now my entire analytics team cannot find the export button. Secondly, every time we attempt to export more than 50 rows, the application latency spikes and throws an unhandled 504 gateway timeout error. We contacted Zendesk support three days ago (ticket 88291) and only received an automated bot reply. If this billing cycle charges us the full enterprise tier fee while the platform is essentially unusable, our legal counsel will be looking into breach of SLA terms. Please have a senior engineer look into this.",
+    "expected_sentiment": "negative",
+    "expected_topic": "bug",
+    "category": "long_rambling"
+  },
+  {
+    "id": "eval_1337_0015",
+    "text": "Just wanted to drop a quick note after testing the beta release for two weeks with our 40-person design agency. The dark mode implementation is genuinely one of the best we've seen across SaaS tools, smooth animations, and we noticed immediate latency improvements when uploading heavy SVG assets. Our team productivity is up. Would still love to see direct Figma import in the next sprint, but wonderful work to the dev team!",
+    "expected_sentiment": "positive",
+    "expected_topic": "ui_ux",
+    "category": "long_rambling"
+  },
+  {
+    "id": "eval_1337_0016",
+    "text": "Can you add webhook notifications for new user registrations?",
+    "expected_sentiment": "neutral",
+    "expected_topic": "feature_request",
+    "category": "standard"
+  },
+  {
+    "id": "eval_1337_0017",
+    "text": "My corporate SSO SAML login fails with invalid signature error.",
+    "expected_sentiment": "negative",
+    "expected_topic": "account",
+    "category": "standard"
+  },
+  {
+    "id": "eval_1337_0018",
+    "text": "Invoices should include company tax ID and VAT number.",
+    "expected_sentiment": "neutral",
+    "expected_topic": "billing",
+    "category": "standard"
+  },
+  {
+    "id": "eval_1337_0019",
+    "text": "Wow, top tier engineering! The checkout button vanishes whenever you click it.",
+    "expected_sentiment": "negative",
+    "expected_topic": "bug",
+    "category": "sarcasm"
+  },
+  {
+    "id": "eval_1337_0020",
+    "text": "Amazing feature: deducting renewal fees without sending a receipt or notice.",
+    "expected_sentiment": "negative",
+    "expected_topic": "billing",
+    "category": "sarcasm"
+  },
+  {
+    "id": "eval_1337_0021",
+    "text": "I cannot say that I hate the new navigation, it isn't terrible.",
+    "expected_sentiment": "neutral",
+    "expected_topic": "ui_ux",
+    "category": "negation"
+  },
+  {
+    "id": "eval_1337_0022",
+    "text": "It is not broken anymore after the patch, no complaints now.",
+    "expected_sentiment": "positive",
+    "expected_topic": "bug",
+    "category": "negation"
+  },
+  {
+    "id": "eval_1337_0023",
+    "text": "Payment wasn't processed and no confirmation email was received.",
+    "expected_sentiment": "negative",
+    "expected_topic": "billing",
+    "category": "negation"
+  },
+  {
+    "id": "eval_1337_0024",
+    "text": "Fast sync across all devices, but the subscription price hike is ridiculous.",
+    "expected_sentiment": "negative",
+    "expected_topic": "billing",
+    "category": "mixed"
+  },
+  {
+    "id": "eval_1337_0025",
+    "text": "Customer rep was polite, but took four days to unlock my account.",
+    "expected_sentiment": "neutral",
+    "expected_topic": "account",
+    "category": "mixed"
+  },
+  {
+    "id": "eval_1337_0026",
+    "text": "Pls fix the serch bar, it frezes when typin fast.",
+    "expected_sentiment": "negative",
+    "expected_topic": "performance",
+    "category": "typos"
+  },
+  {
+    "id": "eval_1337_0027",
+    "text": "Excelent customr servic, refund issued quikly.",
+    "expected_sentiment": "positive",
+    "expected_topic": "billing",
+    "category": "typos"
+  },
+  {
+    "id": "eval_1337_0028",
+    "text": "Login page pe error aa raha hai, OTP nahi mil raha.",
+    "expected_sentiment": "negative",
+    "expected_topic": "account",
+    "category": "code_switched"
+  },
+  {
+    "id": "eval_1337_0029",
+    "text": "El diseno esta muy bonito pero tiene mucho lag.",
+    "expected_sentiment": "negative",
+    "expected_topic": "performance",
+    "category": "code_switched"
+  },
+  {
+    "id": "eval_1337_0030",
+    "text": "Awful",
+    "expected_sentiment": "negative",
+    "expected_topic": "other",
+    "category": "short"
+  },
+  {
+    "id": "eval_1337_0031",
+    "text": "Superb!",
+    "expected_sentiment": "positive",
+    "expected_topic": "other",
+    "category": "short"
+  },
+  {
+    "id": "eval_1337_0032",
+    "text": "Meh.",
+    "expected_sentiment": "neutral",
+    "expected_topic": "other",
+    "category": "short"
+  },
+  {
+    "id": "eval_1337_0033",
+    "text": "I have been a customer since 2021 and usually I do not write reviews, but the recent 4.0 update completely broke our workflow. First of all, the menu items were reorganized for no apparent reason, and now my entire analytics team cannot find the export button. Secondly, every time we attempt to export more than 50 rows, the application latency spikes and throws an unhandled 504 gateway timeout error. We contacted Zendesk support three days ago (ticket 88291) and only received an automated bot reply. If this billing cycle charges us the full enterprise tier fee while the platform is essentially unusable, our legal counsel will be looking into breach of SLA terms. Please have a senior engineer look into this.",
+    "expected_sentiment": "negative",
+    "expected_topic": "bug",
+    "category": "long_rambling"
+  },
+  {
+    "id": "eval_1337_0034",
+    "text": "Just wanted to drop a quick note after testing the beta release for two weeks with our 40-person design agency. The dark mode implementation is genuinely one of the best we've seen across SaaS tools, smooth animations, and we noticed immediate latency improvements when uploading heavy SVG assets. Our team productivity is up. Would still love to see direct Figma import in the next sprint, but wonderful work to the dev team!",
+    "expected_sentiment": "positive",
+    "expected_topic": "ui_ux",
+    "category": "long_rambling"
+  },
+  {
+    "id": "eval_1337_0035",
+    "text": "Can you add webhook notifications for new user registrations?",
+    "expected_sentiment": "neutral",
+    "expected_topic": "feature_request",
+    "category": "standard"
+  },
+  {
+    "id": "eval_1337_0036",
+    "text": "My corporate SSO SAML login fails with invalid signature error.",
+    "expected_sentiment": "negative",
+    "expected_topic": "account",
+    "category": "standard"
+  },
+  {
+    "id": "eval_1337_0037",
+    "text": "Invoices should include company tax ID and VAT number.",
+    "expected_sentiment": "neutral",
+    "expected_topic": "billing",
+    "category": "standard"
+  },
+  {
+    "id": "eval_1337_0038",
+    "text": "Wow, top tier engineering! The checkout button vanishes whenever you click it.",
+    "expected_sentiment": "negative",
+    "expected_topic": "bug",
+    "category": "sarcasm"
+  },
+  {
+    "id": "eval_1337_0039",
+    "text": "Amazing feature: deducting renewal fees without sending a receipt or notice.",
+    "expected_sentiment": "negative",
+    "expected_topic": "billing",
+    "category": "sarcasm"
+  },
+  {
+    "id": "eval_1337_0040",
+    "text": "I cannot say that I hate the new navigation, it isn't terrible.",
+    "expected_sentiment": "neutral",
+    "expected_topic": "ui_ux",
+    "category": "negation"
+  },
+  {
+    "id": "eval_1337_0041",
+    "text": "It is not broken anymore after the patch, no complaints now.",
+    "expected_sentiment": "positive",
+    "expected_topic": "bug",
+    "category": "negation"
+  },
+  {
+    "id": "eval_1337_0042",
+    "text": "Payment wasn't processed and no confirmation email was received.",
+    "expected_sentiment": "negative",
+    "expected_topic": "billing",
+    "category": "negation"
+  },
+  {
+    "id": "eval_1337_0043",
+    "text": "Fast sync across all devices, but the subscription price hike is ridiculous.",
+    "expected_sentiment": "negative",
+    "expected_topic": "billing",
+    "category": "mixed"
+  },
+  {
+    "id": "eval_1337_0044",
+    "text": "Customer rep was polite, but took four days to unlock my account.",
+    "expected_sentiment": "neutral",
+    "expected_topic": "account",
+    "category": "mixed"
+  },
+  {
+    "id": "eval_1337_0045",
+    "text": "Pls fix the serch bar, it frezes when typin fast.",
+    "expected_sentiment": "negative",
+    "expected_topic": "performance",
+    "category": "typos"
+  },
+  {
+    "id": "eval_1337_0046",
+    "text": "Excelent customr servic, refund issued quikly.",
+    "expected_sentiment": "positive",
+    "expected_topic": "billing",
+    "category": "typos"
+  },
+  {
+    "id": "eval_1337_0047",
+    "text": "Login page pe error aa raha hai, OTP nahi mil raha.",
+    "expected_sentiment": "negative",
+    "expected_topic": "account",
+    "category": "code_switched"
+  },
+  {
+    "id": "eval_1337_0048",
+    "text": "El diseno esta muy bonito pero tiene mucho lag.",
+    "expected_sentiment": "negative",
+    "expected_topic": "performance",
+    "category": "code_switched"
+  },
+  {
+    "id": "eval_1337_0049",
+    "text": "Awful",
+    "expected_sentiment": "negative",
+    "expected_topic": "other",
+    "category": "short"
+  },
+  {
+    "id": "eval_1337_0050",
+    "text": "Superb!",
+    "expected_sentiment": "positive",
+    "expected_topic": "other",
+    "category": "short"
+  },
+  {
+    "id": "eval_1337_0051",
+    "text": "Meh.",
+    "expected_sentiment": "neutral",
+    "expected_topic": "other",
+    "category": "short"
+  },
+  {
+    "id": "eval_1337_0052",
+    "text": "I have been a customer since 2021 and usually I do not write reviews, but the recent 4.0 update completely broke our workflow. First of all, the menu items were reorganized for no apparent reason, and now my entire analytics team cannot find the export button. Secondly, every time we attempt to export more than 50 rows, the application latency spikes and throws an unhandled 504 gateway timeout error. We contacted Zendesk support three days ago (ticket 88291) and only received an automated bot reply. If this billing cycle charges us the full enterprise tier fee while the platform is essentially unusable, our legal counsel will be looking into breach of SLA terms. Please have a senior engineer look into this.",
+    "expected_sentiment": "negative",
+    "expected_topic": "bug",
+    "category": "long_rambling"
+  },
+  {
+    "id": "eval_1337_0053",
+    "text": "Just wanted to drop a quick note after testing the beta release for two weeks with our 40-person design agency. The dark mode implementation is genuinely one of the best we've seen across SaaS tools, smooth animations, and we noticed immediate latency improvements when uploading heavy SVG assets. Our team productivity is up. Would still love to see direct Figma import in the next sprint, but wonderful work to the dev team!",
+    "expected_sentiment": "positive",
+    "expected_topic": "ui_ux",
+    "category": "long_rambling"
+  },
+  {
+    "id": "eval_1337_0054",
+    "text": "Can you add webhook notifications for new user registrations?",
+    "expected_sentiment": "neutral",
+    "expected_topic": "feature_request",
+    "category": "standard"
+  },
+  {
+    "id": "eval_1337_0055",
+    "text": "My corporate SSO SAML login fails with invalid signature error.",
+    "expected_sentiment": "negative",
+    "expected_topic": "account",
+    "category": "standard"
+  },
+  {
+    "id": "eval_1337_0056",
+    "text": "Invoices should include company tax ID and VAT number.",
+    "expected_sentiment": "neutral",
+    "expected_topic": "billing",
+    "category": "standard"
+  },
+  {
+    "id": "eval_1337_0057",
+    "text": "Wow, top tier engineering! The checkout button vanishes whenever you click it.",
+    "expected_sentiment": "negative",
+    "expected_topic": "bug",
+    "category": "sarcasm"
+  },
+  {
+    "id": "eval_1337_0058",
+    "text": "Amazing feature: deducting renewal fees without sending a receipt or notice.",
+    "expected_sentiment": "negative",
+    "expected_topic": "billing",
+    "category": "sarcasm"
+  },
+  {
+    "id": "eval_1337_0059",
+    "text": "I cannot say that I hate the new navigation, it isn't terrible.",
+    "expected_sentiment": "neutral",
+    "expected_topic": "ui_ux",
+    "category": "negation"
+  }
+]

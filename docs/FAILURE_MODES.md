@@ -1,0 +1,20 @@
+# Failure Modes & Resilience Matrix
+
+This document catalogs every critical failure scenario that can occur in the SignalForge serverless pipeline, how the architecture behaves, how it is mitigated, and the exact automated test that proves resilience.
+
+---
+
+## Failure Modes Summary Matrix
+
+| Failure Mode | Root Cause / Trigger | System Behavior | Mitigation Strategy | Proving Automated Test |
+|--------------|----------------------|-----------------|---------------------|------------------------|
+| **Duplicate Delivery** | SQS at-least-once delivery or client retry | Second message is received by Processor Lambda | DynamoDB conditional put (`attribute_not_exists(feedback_id)`). Duplicate triggers `ConditionalCheckFailedException`, which is logged and absorbed as an idempotent no-op. Record is not overwritten. | `tests/test_phase6_failure_modes.py::test_duplicate_delivery_and_out_of_order` |
+| **Poison Pill Message** | Malformed JSON or schema violation in SQS message | Processor Lambda cannot parse payload | `ReportBatchItemFailures`: Processor returns `{"batchItemFailures": [{"itemIdentifier": msg_id}]}`. SQS isolates the poison message without failing valid sibling messages in the batch. | `tests/test_phase6_failure_modes.py::test_partial_batch_failure_and_poison_pill` |
+| **Repeated Failures** | Persistent bug or poison payload | Message fails `maxReceiveCount` (3) times | SQS Redrive Policy routes message to `FeedbackDLQ`. CloudWatch alarm triggers on `ApproximateNumberOfMessagesVisible >= 1`. | `tests/test_phase1_ingest.py::test_redrive_dlq_script` |
+| **Provider Timeout** | Upstream LLM API latency surge or timeout | Primary provider call raises `TimeoutError` | Retry with exponential backoff up to 2 times. If timeout persists, circuit breaker records failure and immediately invokes `RuleBasedProvider`. Item is tagged with `fallback_used: true`. | `tests/test_phase6_failure_modes.py::test_provider_timeout_and_malformed_json_fallback` |
+| **Provider Invalid Schema** | LLM hallucinations or broken JSON schema | Pydantic validation on provider output fails | Pipeline catches `ValidationError`, falls back to `RuleBasedProvider`, flags `fallback_used: true`, and stores clean record. | `tests/test_phase6_failure_modes.py::test_provider_timeout_and_malformed_json_fallback` |
+| **Provider Cascade Outage** | External AI API is completely down | Consecutive provider errors trip circuit breaker | `CircuitBreaker` switches state from `CLOSED` to `OPEN`. For the next 10 seconds, all incoming messages bypass the external provider entirely and use the local rule-based fallback without wasting HTTP timeouts. | `tests/test_phase2_enrichment.py::test_circuit_breaker` |
+| **Accidental LLM Network Call** | Unintended external network call in offline/test mode | Code attempts to invoke real LLM endpoint | `LLMProvider` is hard-guarded with `ENABLE_REAL_LLM` flag check. Raises `RuntimeError` immediately if invoked in offline mode. | `tests/test_phase2_enrichment.py::test_enrichment_pipeline_resilience_and_caching` |
+| **False-Positive PII Redaction** | Normal numbers (e.g. order IDs) mistaken for cards/Aadhaar | Regex finds 16 or 12 digit strings | Redactor runs algorithmic validation: Luhn (mod 10) for cards, Verhoeff for Aadhaar. Only verified numbers are redacted. | `tests/test_phase2_enrichment.py::test_pii_validation_algorithms` |
+| **Alert Storm / Fatigue** | Sudden spike generates repeated alarm triggers every minute | Negative sentiment threshold exceeded repeatedly | `SpikeDetector` maintains an alert cooldown window (300s). Subsequent alerts within the cooldown period are suppressed. | `tests/test_phase3_themes.py::test_spike_detection_and_sns_cooldown` |
+| **Lambda Timeout Mid-Batch** | Slow compute exceeds function timeout | Function terminated by AWS Lambda runtime | SQS visibility timeout (`180s`) exceeds function timeout (`30s`). In-flight unacknowledged messages become visible again after 180s and are re-processed safely via idempotency. | SAM configuration validated in `template.yaml` via `cfn-lint` |

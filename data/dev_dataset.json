@@ -1,0 +1,422 @@
+[
+  {
+    "id": "eval_42_0000",
+    "text": "Oh wonderful, another update that completely crashes the app. Just fantastic!",
+    "expected_sentiment": "negative",
+    "expected_topic": "bug",
+    "category": "sarcasm"
+  },
+  {
+    "id": "eval_42_0001",
+    "text": "Brilliant work charging me three times for one subscription, truly five star service.",
+    "expected_sentiment": "negative",
+    "expected_topic": "billing",
+    "category": "sarcasm"
+  },
+  {
+    "id": "eval_42_0002",
+    "text": "I absolutely love waiting 45 seconds for a single page to load. Great job guys.",
+    "expected_sentiment": "negative",
+    "expected_topic": "performance",
+    "category": "sarcasm"
+  },
+  {
+    "id": "eval_42_0003",
+    "text": "The app is not slow at all and I am not disappointed with the support.",
+    "expected_sentiment": "positive",
+    "expected_topic": "performance",
+    "category": "negation"
+  },
+  {
+    "id": "eval_42_0004",
+    "text": "This is definitely not what I would call a good or reliable tool.",
+    "expected_sentiment": "negative",
+    "expected_topic": "bug",
+    "category": "negation"
+  },
+  {
+    "id": "eval_42_0005",
+    "text": "Never had any issues with billing and charges are never incorrect.",
+    "expected_sentiment": "positive",
+    "expected_topic": "billing",
+    "category": "negation"
+  },
+  {
+    "id": "eval_42_0006",
+    "text": "The UI design is gorgeous and clean, but the constant crashes make it unusable.",
+    "expected_sentiment": "negative",
+    "expected_topic": "bug",
+    "category": "mixed"
+  },
+  {
+    "id": "eval_42_0007",
+    "text": "Setup was painful and confusing, but customer service was helpful and fixed it.",
+    "expected_sentiment": "positive",
+    "expected_topic": "ui_ux",
+    "category": "mixed"
+  },
+  {
+    "id": "eval_42_0008",
+    "text": "The new relase is so sloww, laggy and completly brokn.",
+    "expected_sentiment": "negative",
+    "expected_topic": "performance",
+    "category": "typos"
+  },
+  {
+    "id": "eval_42_0009",
+    "text": "Amzing suport! Responded in 2 mins and fixed my login pasword.",
+    "expected_sentiment": "positive",
+    "expected_topic": "account",
+    "category": "typos"
+  },
+  {
+    "id": "eval_42_0010",
+    "text": "App ka interface bahut achha hai but payment fail ho raha hai.",
+    "expected_sentiment": "negative",
+    "expected_topic": "billing",
+    "category": "code_switched"
+  },
+  {
+    "id": "eval_42_0011",
+    "text": "Servicio muy rapido y excelente, me encanto la nueva actualizacion.",
+    "expected_sentiment": "positive",
+    "expected_topic": "ui_ux",
+    "category": "code_switched"
+  },
+  {
+    "id": "eval_42_0012",
+    "text": "Bad.",
+    "expected_sentiment": "negative",
+    "expected_topic": "other",
+    "category": "short"
+  },
+  {
+    "id": "eval_42_0013",
+    "text": "Loved it!",
+    "expected_sentiment": "positive",
+    "expected_topic": "other",
+    "category": "short"
+  },
+  {
+    "id": "eval_42_0014",
+    "text": "Okay.",
+    "expected_sentiment": "neutral",
+    "expected_topic": "other",
+    "category": "short"
+  },
+  {
+    "id": "eval_42_0015",
+    "text": "Please add export to Google Sheets and CSV format integration.",
+    "expected_sentiment": "neutral",
+    "expected_topic": "feature_request",
+    "category": "standard"
+  },
+  {
+    "id": "eval_42_0016",
+    "text": "I cannot reset my password or receive the 2FA SMS code.",
+    "expected_sentiment": "negative",
+    "expected_topic": "account",
+    "category": "standard"
+  },
+  {
+    "id": "eval_42_0017",
+    "text": "Where can I view my latest invoice and tax receipt?",
+    "expected_sentiment": "neutral",
+    "expected_topic": "billing",
+    "category": "standard"
+  },
+  {
+    "id": "eval_42_0018",
+    "text": "Fantastic product, super fast performance and reliable sync.",
+    "expected_sentiment": "positive",
+    "expected_topic": "performance",
+    "category": "standard"
+  },
+  {
+    "id": "eval_42_0019",
+    "text": "The dark mode theme is clean and easy on the eyes.",
+    "expected_sentiment": "positive",
+    "expected_topic": "ui_ux",
+    "category": "standard"
+  },
+  {
+    "id": "eval_42_0020",
+    "text": "Oh wonderful, another update that completely crashes the app. Just fantastic!",
+    "expected_sentiment": "negative",
+    "expected_topic": "bug",
+    "category": "sarcasm"
+  },
+  {
+    "id": "eval_42_0021",
+    "text": "Brilliant work charging me three times for one subscription, truly five star service.",
+    "expected_sentiment": "negative",
+    "expected_topic": "billing",
+    "category": "sarcasm"
+  },
+  {
+    "id": "eval_42_0022",
+    "text": "I absolutely love waiting 45 seconds for a single page to load. Great job guys.",
+    "expected_sentiment": "negative",
+    "expected_topic": "performance",
+    "category": "sarcasm"
+  },
+  {
+    "id": "eval_42_0023",
+    "text": "The app is not slow at all and I am not disappointed with the support.",
+    "expected_sentiment": "positive",
+    "expected_topic": "performance",
+    "category": "negation"
+  },
+  {
+    "id": "eval_42_0024",
+    "text": "This is definitely not what I would call a good or reliable tool.",
+    "expected_sentiment": "negative",
+    "expected_topic": "bug",
+    "category": "negation"
+  },
+  {
+    "id": "eval_42_0025",
+    "text": "Never had any issues with billing and charges are never incorrect.",
+    "expected_sentiment": "positive",
+    "expected_topic": "billing",
+    "category": "negation"
+  },
+  {
+    "id": "eval_42_0026",
+    "text": "The UI design is gorgeous and clean, but the constant crashes make it unusable.",
+    "expected_sentiment": "negative",
+    "expected_topic": "bug",
+    "category": "mixed"
+  },
+  {
+    "id": "eval_42_0027",
+    "text": "Setup was painful and confusing, but customer service was helpful and fixed it.",
+    "expected_sentiment": "positive",
+    "expected_topic": "ui_ux",
+    "category": "mixed"
+  },
+  {
+    "id": "eval_42_0028",
+    "text": "The new relase is so sloww, laggy and completly brokn.",
+    "expected_sentiment": "negative",
+    "expected_topic": "performance",
+    "category": "typos"
+  },
+  {
+    "id": "eval_42_0029",
+    "text": "Amzing suport! Responded in 2 mins and fixed my login pasword.",
+    "expected_sentiment": "positive",
+    "expected_topic": "account",
+    "category": "typos"
+  },
+  {
+    "id": "eval_42_0030",
+    "text": "App ka interface bahut achha hai but payment fail ho raha hai.",
+    "expected_sentiment": "negative",
+    "expected_topic": "billing",
+    "category": "code_switched"
+  },
+  {
+    "id": "eval_42_0031",
+    "text": "Servicio muy rapido y excelente, me encanto la nueva actualizacion.",
+    "expected_sentiment": "positive",
+    "expected_topic": "ui_ux",
+    "category": "code_switched"
+  },
+  {
+    "id": "eval_42_0032",
+    "text": "Bad.",
+    "expected_sentiment": "negative",
+    "expected_topic": "other",
+    "category": "short"
+  },
+  {
+    "id": "eval_42_0033",
+    "text": "Loved it!",
+    "expected_sentiment": "positive",
+    "expected_topic": "other",
+    "category": "short"
+  },
+  {
+    "id": "eval_42_0034",
+    "text": "Okay.",
+    "expected_sentiment": "neutral",
+    "expected_topic": "other",
+    "category": "short"
+  },
+  {
+    "id": "eval_42_0035",
+    "text": "Please add export to Google Sheets and CSV format integration.",
+    "expected_sentiment": "neutral",
+    "expected_topic": "feature_request",
+    "category": "standard"
+  },
+  {
+    "id": "eval_42_0036",
+    "text": "I cannot reset my password or receive the 2FA SMS code.",
+    "expected_sentiment": "negative",
+    "expected_topic": "account",
+    "category": "standard"
+  },
+  {
+    "id": "eval_42_0037",
+    "text": "Where can I view my latest invoice and tax receipt?",
+    "expected_sentiment": "neutral",
+    "expected_topic": "billing",
+    "category": "standard"
+  },
+  {
+    "id": "eval_42_0038",
+    "text": "Fantastic product, super fast performance and reliable sync.",
+    "expected_sentiment": "positive",
+    "expected_topic": "performance",
+    "category": "standard"
+  },
+  {
+    "id": "eval_42_0039",
+    "text": "The dark mode theme is clean and easy on the eyes.",
+    "expected_sentiment": "positive",
+    "expected_topic": "ui_ux",
+    "category": "standard"
+  },
+  {
+    "id": "eval_42_0040",
+    "text": "Oh wonderful, another update that completely crashes the app. Just fantastic!",
+    "expected_sentiment": "negative",
+    "expected_topic": "bug",
+    "category": "sarcasm"
+  },
+  {
+    "id": "eval_42_0041",
+    "text": "Brilliant work charging me three times for one subscription, truly five star service.",
+    "expected_sentiment": "negative",
+    "expected_topic": "billing",
+    "category": "sarcasm"
+  },
+  {
+    "id": "eval_42_0042",
+    "text": "I absolutely love waiting 45 seconds for a single page to load. Great job guys.",
+    "expected_sentiment": "negative",
+    "expected_topic": "performance",
+    "category": "sarcasm"
+  },
+  {
+    "id": "eval_42_0043",
+    "text": "The app is not slow at all and I am not disappointed with the support.",
+    "expected_sentiment": "positive",
+    "expected_topic": "performance",
+    "category": "negation"
+  },
+  {
+    "id": "eval_42_0044",
+    "text": "This is definitely not what I would call a good or reliable tool.",
+    "expected_sentiment": "negative",
+    "expected_topic": "bug",
+    "category": "negation"
+  },
+  {
+    "id": "eval_42_0045",
+    "text": "Never had any issues with billing and charges are never incorrect.",
+    "expected_sentiment": "positive",
+    "expected_topic": "billing",
+    "category": "negation"
+  },
+  {
+    "id": "eval_42_0046",
+    "text": "The UI design is gorgeous and clean, but the constant crashes make it unusable.",
+    "expected_sentiment": "negative",
+    "expected_topic": "bug",
+    "category": "mixed"
+  },
+  {
+    "id": "eval_42_0047",
+    "text": "Setup was painful and confusing, but customer service was helpful and fixed it.",
+    "expected_sentiment": "positive",
+    "expected_topic": "ui_ux",
+    "category": "mixed"
+  },
+  {
+    "id": "eval_42_0048",
+    "text": "The new relase is so sloww, laggy and completly brokn.",
+    "expected_sentiment": "negative",
+    "expected_topic": "performance",
+    "category": "typos"
+  },
+  {
+    "id": "eval_42_0049",
+    "text": "Amzing suport! Responded in 2 mins and fixed my login pasword.",
+    "expected_sentiment": "positive",
+    "expected_topic": "account",
+    "category": "typos"
+  },
+  {
+    "id": "eval_42_0050",
+    "text": "App ka interface bahut achha hai but payment fail ho raha hai.",
+    "expected_sentiment": "negative",
+    "expected_topic": "billing",
+    "category": "code_switched"
+  },
+  {
+    "id": "eval_42_0051",
+    "text": "Servicio muy rapido y excelente, me encanto la nueva actualizacion.",
+    "expected_sentiment": "positive",
+    "expected_topic": "ui_ux",
+    "category": "code_switched"
+  },
+  {
+    "id": "eval_42_0052",
+    "text": "Bad.",
+    "expected_sentiment": "negative",
+    "expected_topic": "other",
+    "category": "short"
+  },
+  {
+    "id": "eval_42_0053",
+    "text": "Loved it!",
+    "expected_sentiment": "positive",
+    "expected_topic": "other",
+    "category": "short"
+  },
+  {
+    "id": "eval_42_0054",
+    "text": "Okay.",
+    "expected_sentiment": "neutral",
+    "expected_topic": "other",
+    "category": "short"
+  },
+  {
+    "id": "eval_42_0055",
+    "text": "Please add export to Google Sheets and CSV format integration.",
+    "expected_sentiment": "neutral",
+    "expected_topic": "feature_request",
+    "category": "standard"
+  },
+  {
+    "id": "eval_42_0056",
+    "text": "I cannot reset my password or receive the 2FA SMS code.",
+    "expected_sentiment": "negative",
+    "expected_topic": "account",
+    "category": "standard"
+  },
+  {
+    "id": "eval_42_0057",
+    "text": "Where can I view my latest invoice and tax receipt?",
+    "expected_sentiment": "neutral",
+    "expected_topic": "billing",
+    "category": "standard"
+  },
+  {
+    "id": "eval_42_0058",
+    "text": "Fantastic product, super fast performance and reliable sync.",
+    "expected_sentiment": "positive",
+    "expected_topic": "performance",
+    "category": "standard"
+  },
+  {
+    "id": "eval_42_0059",
+    "text": "The dark mode theme is clean and easy on the eyes.",
+    "expected_sentiment": "positive",
+    "expected_topic": "ui_ux",
+    "category": "standard"
+  }
+]
