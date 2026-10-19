@@ -27,8 +27,8 @@ jobs:
       - name: Install Pinned Dependencies
         run: |
           python -m pip install --upgrade pip==26.2 setuptools==83.0.0
-          pip install --no-build-isolation -r requirements.txt
-          pip install --no-build-isolation -e .
+          pip install --only-binary=:all: --no-build-isolation -r requirements.txt
+          pip install --no-build-isolation --no-deps -e .
 
       - name: Lint with Ruff
         run: |
@@ -57,6 +57,7 @@ jobs:
           AWS_SECURITY_TOKEN: testing
           AWS_SESSION_TOKEN: testing
           AWS_DEFAULT_REGION: us-east-1
+          PYTHONPATH: ${{ github.workspace }}
           FEEDBACK_TABLE_NAME: SignalForgeTestTable
           ALERTS_TOPIC_ARN: arn:aws:sns:us-east-1:123456789012:test-alerts
         run: |
